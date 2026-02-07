@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaço Encantado</title>
+    <!-- ajustado para apontar ao arquivo CSS na pasta css -->
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Barra de navegação">
+        <a href="#" class="brand-link" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+            <!-- usei a imagem que você colocou (substitua o caminho se necessário) -->
+            <img src="../imagens/imagens_index/logoec.png" alt="Espaço Encantado" class="brand-logo">
+        </a>
+
+        <form class="nav-search" role="search" action="#" onsubmit="return false;">
+            <input type="search" name="q" placeholder="Buscar..." aria-label="Pesquisar">
+        </form>
+
+        <div class="right">
+            <button class="btn login" type="button">Login</button>
+            <button class="hamburger" aria-label="Abrir menu" title="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Introdução no topo com fundo cinza claro -->
+    <section class="intro" role="region" aria-label="Introdução">
+        <h1>Seu sonho em forma de festa!</h1>
+        <h1>Bem-vindo ao Espaço Encantado!</h1> <!-- corrigido: usar <h2> -->
+        <p>Aqui, cada detalhe é pensado para
+transformar o seu evento em um momento
+único e cheio de magia.</p>
+    </section>
+
+    <!-- Dois blocos side-by-side com títulos acima -->
+    <section class="columns-section" role="region" aria-label="Objetivo e Serviços">
+        <div class="columns">
+            <div class="column">
+                <h3 class="column-title">Nosso objetivo</h3>
+                <div class="box">
+                    <p>A Espaço Encantado tem como
+objetivo tornar cada festa incrível,
+transformando sonhos em realidade e
+criando momentos mágicos!</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <h3 class="column-title">Serviços</h3>
+                <div class="box">
+                    <p>Nossa loja oferece tudo para a sua
+comemoração: decorações, brinquedos e
+artigos de festa para tornar cada
+momento inesquecível!</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- faixa dos balões: imagem atravessa a viewport inteira como uma faixa horizontal -->
+    <div class="baloes-band" aria-hidden="true">
+        <img src="../imagens/imagens_index/baloes.png" alt="" class="baloes-img">
+
+        <!-- floating cards sobre os balões (dois cards, lado a lado, nunca empilham) -->
+        <div class="floating-cards" aria-label="Cards flutuantes">
+            <div class="floating-column">
+                <div class="floating-card">
+                    <h4 class="floating-title">
+                        <!-- relógio SVG minimal -->
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <path d="M12 7v5l3 2"></path>
+                        </svg>
+                        Horários
+                    </h4>
+                    <div class="floating-content">
+                        <p>Segunda: 13h30 – 18h00
+Terça a Sexta: 08h00 – 18h00
+Sábado: 08h00 – 12h00
+Domingo: Fechado
+</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="floating-column">
+                <div class="floating-card">
+                    <h4 class="floating-title">
+                        <!-- pin SVG minimal -->
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        Localização
+                    </h4>
+                    <div class="floating-content">
+                        <p>Estamos localizados na R. Ricardo
+Inácio, em Praia Grande – SC. Venha
+nos visitar e encantar-se com nossas
+decorações e serviços — esperamos
+por você!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- .baloes-band -->
+
+    <!-- seção: Conheça nossas decorações + carrossel (sem imagens por enquanto) -->
+    <section class="decor-section" aria-label="Conheça nossas decorações">
+        <h2 class="decor-title">Conheça nossas decorações, clique para saber mais</h2>
+
+        <div class="decor-carousel-wrap">
+            <button class="carousel-nav prev" aria-label="Anterior"></button>
+
+            <div class="decor-carousel" tabindex="0" aria-roledescription="carrossel de imagens">
+                <div class="decor-slide" role="group" aria-label="Slide 1"></div>
+                <div class="decor-slide" role="group" aria-label="Slide 2"></div>
+                <div class="decor-slide" role="group" aria-label="Slide 3"></div>
+                <div class="decor-slide" role="group" aria-label="Slide 4"></div>
+            </div>
+
+            <div class="carousel-dots" aria-hidden="false"></div>
+
+            <button class="carousel-nav next" aria-label="Próximo"></button>
+        </div>
+    </section>
+
+    <script>
+    (function(){
+        const container = document.querySelector('.decor-carousel');
+        if (!container) return;
+
+        const prev = document.querySelector('.carousel-nav.prev');
+        const next = document.querySelector('.carousel-nav.next');
+        const dotsWrap = document.querySelector('.carousel-dots');
+        const slides = Array.from(container.querySelectorAll('.decor-slide'));
+
+        // cria bolinhas (dots)
+        slides.forEach((_, i) => {
+            const d = document.createElement('button');
+            d.className = 'carousel-dot';
+            d.type = 'button';
+            d.setAttribute('aria-label', 'Ir para o slide ' + (i+1));
+            d.addEventListener('click', () => slides[i].scrollIntoView({behavior: 'smooth', inline: 'center'}));
+            dotsWrap.appendChild(d);
+        });
+        const dots = Array.from(dotsWrap.children);
+
+        function updateActive() {
+            const cRect = container.getBoundingClientRect();
+            let closest = 0;
+            let minDist = Infinity;
+            slides.forEach((s, idx) => {
+                const sRect = s.getBoundingClientRect();
+                const sCenter = sRect.left + sRect.width/2;
+                const cCenter = cRect.left + cRect.width/2;
+                const dist = Math.abs(sCenter - cCenter);
+                if (dist < minDist) { minDist = dist; closest = idx; }
+            });
+            dots.forEach((b, i) => b.classList.toggle('active', i === closest));
+            container.setAttribute('data-index', closest);
+        }
+
+        // next/prev handlers
+        function go(delta) {
+            const idx = Number(container.getAttribute('data-index') || 0);
+            const target = Math.max(0, Math.min(slides.length - 1, idx + delta));
+            slides[target].scrollIntoView({behavior: 'smooth', inline: 'center'});
+        }
+        prev && prev.addEventListener('click', () => go(-1));
+        next && next.addEventListener('click', () => go(1));
+
+        // keyboard
+        container.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') go(1);
+            if (e.key === 'ArrowLeft') go(-1);
+        });
+
+        // atualizar indicador durante rolagem - rAF para performance
+        let rafId = null;
+        function onScroll() {
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(() => { updateActive(); rafId = null; });
+        }
+        container.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+
+        // init
+        slides[0].scrollIntoView({behavior: 'auto', inline: 'center'});
+        updateActive();
+    })();
+    </script>
+
+    <script>
+        // esconde a navbar quando o usuário chega perto do final da página
+        (function () {
+            const navbar = document.querySelector('.navbar');
+            if (!navbar) return;
+            const HIDE_THRESHOLD = 150; // px a partir do final da página
+
+            function checkHide() {
+                const doc = document.documentElement;
+                const distanceToBottom = doc.scrollHeight - (window.scrollY + window.innerHeight);
+                navbar.classList.toggle('hidden', distanceToBottom < HIDE_THRESHOLD);
+            }
+
+            // verifica em load/scroll/resize
+            window.addEventListener('scroll', checkHide, { passive: true });
+            window.addEventListener('resize', checkHide);
+            document.addEventListener('DOMContentLoaded', checkHide);
+            // chamada inicial no caso da página já estar rolada
+            checkHide();
+        })();
+    </script>
+</body>
+</html>
