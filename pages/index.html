@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaço Encantado</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Barra de navegação">
+        <a href="#" class="brand-link" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+            <img src="../imagens/imagens_index/logoec.png" alt="Espaço Encantado" class="brand-logo">
+        </a>
+
+        <form class="nav-search" role="search" action="#" onsubmit="return false;">
+            <input type="search" name="q" placeholder="Buscar..." aria-label="Pesquisar">
+            <div class="search-suggestions" id="searchSuggestions"></div>
+        </form>
+
+        <div class="right">
+            <a href="../login"><button class="btn login" type="button">Login</button></a>
+            <button class="hamburger" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="intro" role="region" aria-label="Introdução">
+        <h1>Seu sonho em forma de festa!</h1>
+        <h2>Bem-vindo ao Espaço Encantado!</h2>
+        <p>Aqui, cada detalhe é pensado para transformar o seu evento em um momento único e cheio de magia.</p>
+    </section>
+
+    <section class="columns-section" role="region" aria-label="Objetivo e Serviços">
+        <div class="columns">
+            <div class="column">
+                <h3 class="column-title">Nosso objetivo</h3>
+                <div class="box">
+                    <p>A Espaço Encantado tem como objetivo tornar cada festa incrível, transformando sonhos em realidade e criando momentos mágicos!</p>
+                </div>
+            </div>
+            <div class="column">
+                <h3 class="column-title">Serviços</h3>
+                <div class="box">
+                    <p>Nossa loja oferece tudo para a sua comemoração: decorações, brinquedos e artigos de festa para tornar cada momento inesquecível!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="baloes-band" aria-hidden="true">
+        <img src="../imagens/imagens_index/baloes.png" alt="" class="baloes-img">
+        <div class="floating-cards" aria-label="Cards flutuantes">
+            <div class="floating-column">
+                <div class="floating-card">
+                    <h4 class="floating-title">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <path d="M12 7v5l3 2"></path>
+                        </svg>
+                        Horários
+                    </h4>
+                    <div class="floating-content">
+                        <p>Segunda: 13h30 – 18h00
+Terça a Sexta: 08h00 – 18h00
+Sábado: 08h00 – 12h00
+Domingo: Fechado</p>
+                    </div>
+                </div>
+            </div>
+            <div class="floating-column">
+                <div class="floating-card">
+                    <h4 class="floating-title">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        Localização
+                    </h4>
+                    <div class="floating-content">
+                        <p>Estamos localizados na R. Ricardo Inácio, em Praia Grande – SC. Venha nos visitar e encantar-se com nossas decorações e serviços!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="decor-section" aria-label="Conheça nossas decorações">
+        <h2 class="decor-title">Conheça nossas decorações, clique para saber mais!</h2>
+        <div class="decor-carousel-wrap">
+            <button class="carousel-nav prev" aria-label="Anterior"></button>
+            <div class="decor-carousel" tabindex="0" aria-roledescription="carrossel de imagens">
+                <div class="decor-slide" role="group" aria-label="Slide 1"></div>
+                <div class="decor-slide" role="group" aria-label="Slide 2"></div>
+                <div class="decor-slide" role="group" aria-label="Slide 3"></div>
+                <div class="decor-slide" role="group" aria-label="Slide 4"></div>
+            </div>
+            <div class="carousel-dots"></div>
+            <button class="carousel-nav next" aria-label="Próximo"></button>
+        </div>
+    </section>
+
+    <section class="titulo-baloes-section">
+        <div class="titulo-baloes-container">
+            <img src="../imagens/imagens_index/titulo_baloes.png" alt="Título decorativo" class="titulo-baloes-img">
+            <div class="titulo-baloes-overlay">
+                <h2 class="titulo-baloes-texto">Deseja acessar nossos catálogos?</h2>
+            </div>
+        </div>
+        <div class="titulo-baloes-search">
+            <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="7"></circle>
+                <line x1="16.65" y1="16.65" x2="21" y2="21"></line>
+            </svg>
+            <input type="search" placeholder="Buscar...">
+        </div>
+    </section>
+
+    <section class="catalog-section" aria-label="Catálogos">
+        <div class="catalog-grid">
+            <div class="catalog-card">
+                <h3 class="catalog-card-title">Brinquedos</h3>
+            </div>
+            <div class="catalog-card">
+                <h3 class="catalog-card-title">Decorações</h3>
+            </div>
+            <div class="catalog-card">
+                <h3 class="catalog-card-title">Kit de montagem</h3>
+            </div>
+            <div class="catalog-card">
+                <h3 class="catalog-card-title">Festa infantil</h3>
+            </div>
+        </div>
+    </section>
+
+    <div class="history-title-wrapper">
+        <h2 class="history-title">Conheça um pouco da nossa história!</h2>
+    </div>
+
+    <section class="history-section" aria-label="Nossa história">
+        <div class="history-decor history-decor-top" aria-hidden="true">
+            <img src="../imagens/imagens_index/bltopo.png" alt="" class="history-deco-img top">
+        </div>
+        <div class="history-inner">
+            <div class="history-box">
+                <div class="history-column">
+                    <p>O ponto de partida da loja Espaço Encantado ocorreu em 2005, um período marcado por desafios e recursos limitados. A proprietária Elisabete, com poucos meios para investir, começou utilizando materiais simples como folhas de E.V.A., TNT e isopor em suas primeiras decorações.</p>
+                </div>
+                <div class="history-divider" aria-hidden="true"></div>
+                <div class="history-column">
+                    <p>Com o tempo, iniciou sua caminhada como empreendedora, investindo em artigos para festas e montando sua primeira loja na sala de casa. A partir daí, o negócio evoluiu gradualmente até se consolidar e se tornar a grande realizadora de sonhos que é hoje.</p>
+                </div>
+            </div>
+        </div>
+        <div class="history-decor history-decor-bottom" aria-hidden="true">
+            <img src="../imagens/imagens_index/blfundo.png" alt="" class="history-deco-img bottom">
+        </div>
+    </section>
+
+    <section class="login-section" aria-label="Acesso">
+        <div class="login-text">
+            <h3 class="login-title">Faça seu login para desfrutar<br> dos nossos serviços</h3>
+        </div>
+        <div class="login-visual">
+            <img src="../imagens/imagens_index/baloeslogin.png" alt="" class="login-balloons">
+            <div class="login-buttons">
+                <a href="../login" class="login-link"><button class="login-btn" type="button">
+                    <svg class="login-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    LOGIN
+                </button></a>
+            </div>
+        </div>
+    </section>
+
+    <div id="searchOverlay" class="search-overlay"></div>
+
+    <script src="../scripts/telaInicial.js"></script>
+</body>
+</html>
