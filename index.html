@@ -16,7 +16,12 @@
 
         <form class="nav-search" role="search" action="#" onsubmit="return false;">
             <input type="search" name="q" placeholder="Buscar..." aria-label="Pesquisar">
+            <div class="search-suggestions" id="searchSuggestions">
+                <!-- As sugestões serão preenchidas aqui -->
+            </div>
         </form>
+
+        <!-- overlay removed from inside nav; moved to end of body to keep navbar above overlay -->
 
         <div class="right">
             <button class="btn login" type="button">Login</button>
@@ -114,7 +119,7 @@ por você!</p>
 
     <!-- seção: Conheça nossas decorações + carrossel (sem imagens por enquanto) -->
     <section class="decor-section" aria-label="Conheça nossas decorações">
-        <h2 class="decor-title">Conheça nossas decorações, clique para saber mais</h2>
+        <h2 class="decor-title">Conheça nossas decorações, clique para saber mais!</h2>
 
         <div class="decor-carousel-wrap">
             <button class="carousel-nav prev" aria-label="Anterior"></button>
@@ -132,7 +137,189 @@ por você!</p>
         </div>
     </section>
 
+
+<section class="titulo-baloes-section">
+    
+    <div class="titulo-baloes-container">
+
+        <img src="imagens/imagens_index/titulo_baloes.png"
+             alt="Título decorativo"
+             class="titulo-baloes-img">
+
+        <!-- TÍTULO SOBRE A IMAGEM -->
+        <div class="titulo-baloes-overlay">
+            <h2 class="titulo-baloes-texto">
+                Deseja acessar nossos catálogos?
+            </h2>
+        </div>
+
+    </div>
+
+    <!-- BARRA DE BUSCA FORA DA IMAGEM -->
+    <div class="titulo-baloes-search">
+        <svg viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="16.65" y1="16.65" x2="21" y2="21"></line>
+        </svg>
+
+        <input type="search" placeholder="Buscar...">
+    </div>
+
+</section>
+
+<!-- Seção: quatro cards de catálogo abaixo do título -->
+<section class="catalog-section" aria-label="Catálogos">
+    <div class="catalog-grid">
+        <div class="catalog-card">
+            <h3 class="catalog-card-title">Brinquedos</h3>
+        </div>
+        <div class="catalog-card">
+            <h3 class="catalog-card-title">Decorações</h3>
+        </div>
+        <div class="catalog-card">
+            <h3 class="catalog-card-title">Kit de montagem</h3>
+        </div>
+        <div class="catalog-card">
+            <h3 class="catalog-card-title">Festa infantil</h3>
+        </div>
+    </div>
+</section>
+
+<!-- Seção: Nossa história (com decorações em cima/embaixo) -->
+<div class="history-title-wrapper">
+    <h2 class="history-title">Conheça um pouco da nossa história!</h2>
+</div>
+
+<section class="history-section" aria-label="Nossa história">
+    <div class="history-decor history-decor-top" aria-hidden="true">
+        <img src="imagens/imagens_index/bltopo.png" alt="" class="history-deco-img top">
+    </div>
+
+    <div class="history-inner">
+
+        <div class="history-box">
+            <div class="history-column">
+                <p>O ponto de partida da loja Espaço Encantado ocorreu em 2005, um período marcado por desafios e recursos limitados. A proprietária Elisabete, com poucos meios para investir, começou utilizando materiais simples como folhas de E.V.A., TNT e isopor em suas primeiras decorações.</p>
+            </div>
+
+            <div class="history-divider" aria-hidden="true"></div>
+
+            <div class="history-column">
+                <p>Com o tempo, iniciou sua caminhada como empreendedora, investindo em artigos para festas e montando sua primeira loja na sala de casa. A partir daí, o negócio evoluiu gradualmente até se consolidar e se tornar a grande realizadora de sonhos que é hoje.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="history-decor history-decor-bottom" aria-hidden="true">
+        <img src="imagens/imagens_index/blfundo.png" alt="" class="history-deco-img bottom">
+    </div>
+</section>
+
+<!-- Seção: Login com balões e botões -->
+<section class="login-section" aria-label="Acesso">
+    <div class="login-text">
+        <h3 class="login-title">Faça seu login para desfrutar<br>dos nossos serviços</h3>
+        <div class="login-arrow" aria-hidden="true">→</div>
+    </div>
+
+    <div class="login-visual">
+        <img src="imagens/imagens_index/baloeslogin.png" alt="" class="login-balloons">
+        <!-- Espaço para botões que serão adicionados depois -->
+        <div class="login-buttons">
+            <button class="login-btn" type="button">
+                <svg class="login-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                LOGIN
+            </button>
+        </div>
+    </div>
+</section>
+
     <script>
+    // tratamento da barra de pesquisa com dropdown de sugestões
+    (function() {
+        const searchInput = document.querySelector('.nav-search input');
+        const suggestions = document.getElementById('searchSuggestions');
+        const overlay = document.getElementById('searchOverlay');
+        
+        const mockSuggestions = [
+            'Brinquedos',
+            'Decorações',
+            'Kit de montagem',
+            'Festa infantil'
+        ];
+        
+        function openSearch() {
+            suggestions.classList.add('active');
+            overlay.classList.add('active');
+            document.body.classList.add('search-open');
+            // prevent page scroll while suggestions open
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeSearch() {
+            suggestions.classList.remove('active');
+            overlay.classList.remove('active');
+            searchInput.value = '';
+            document.body.classList.remove('search-open');
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+        }
+        
+        function updateSuggestions(query) {
+            if (!query.trim()) {
+                suggestions.innerHTML = '';
+                closeSearch();
+                return;
+            }
+            
+            const filtered = mockSuggestions.filter(s => 
+                s.toLowerCase().includes(query.toLowerCase())
+            );
+            
+            if (filtered.length === 0) {
+                suggestions.innerHTML = '<div style="padding:12px;color:#999;">Nenhum resultado encontrado</div>';
+                openSearch();
+                return;
+            }
+            
+            suggestions.innerHTML = filtered.map(s => 
+                `<div class="search-suggestions-item">${s}</div>`
+            ).join('');
+            
+            openSearch();
+        }
+        
+        searchInput.addEventListener('focus', openSearch);
+        searchInput.addEventListener('input', (e) => updateSuggestions(e.target.value));
+
+        // when input loses focus, close suggestions unless focus moved to the suggestions
+        searchInput.addEventListener('blur', () => {
+            setTimeout(() => {
+                const active = document.activeElement;
+                if (!suggestions.contains(active) && active !== searchInput) {
+                    closeSearch();
+                }
+            }, 150);
+        });
+
+        // click on a suggestion: fill input and close
+        suggestions.addEventListener('click', (e) => {
+            const item = e.target.closest('.search-suggestions-item');
+            if (!item) return;
+            searchInput.value = item.textContent.trim();
+            closeSearch();
+        });
+
+        // allow Esc to close the drawer
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSearch(); });
+
+        overlay.addEventListener('click', closeSearch);
+    })();
+    
     (function(){
         const container = document.querySelector('.decor-carousel');
         if (!container) return;
@@ -219,5 +406,7 @@ por você!</p>
             checkHide();
         })();
     </script>
+        <!-- overlay que escurece a página: fica no final do body para ficar abaixo da navbar -->
+        <div class="search-overlay" id="searchOverlay"></div>
 </body>
 </html>
